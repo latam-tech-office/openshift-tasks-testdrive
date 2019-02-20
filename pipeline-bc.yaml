@@ -12,12 +12,12 @@ spec:
       jenkinsfile: |-
           node('maven') {
              stage ('Compile') {
-               git 'http://gogs:3000/<YOUR PREFIX>/openshift-tasks-testdrive.git'
+               git 'http://gogs:3000/gquites/openshift-tasks-testdrive.git'
                sh "mvn clean install -DskipTests=true"
              }
 
              stage('Deploy') {
-               sh "oc start-build stage-app --from-file target/openshift-tasks.war --follow --wait=true  --namespace <YOUR PREFIX>" 
+               sh "oc start-build stage-app --from-file target/openshift-tasks.war --follow --wait=true  --namespace gquites2" 
              }
           }
     type: JenkinsPipeline
